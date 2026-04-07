@@ -1,6 +1,6 @@
 <p align="center">
   <h1 align="center">LLMPowerUp</h1>
-  <p align="center"><strong>Make any LLM as capable as ChatGPT or Claude. One API call.</strong></p>
+  <p align="center"><strong>The power of Claude Code and OpenAI Codex — as an API for your business.</strong></p>
   <p align="center">
     <a href="https://github.com/Fonles-CIA-LTDA/llmpowerup/stargazers"><img src="https://img.shields.io/github/stars/Fonles-CIA-LTDA/llmpowerup?style=social" alt="GitHub Stars"></a>
     <a href="https://github.com/Fonles-CIA-LTDA/llmpowerup/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-AGPL--3.0-blue" alt="License"></a>
@@ -24,57 +24,53 @@
 
 ## The Problem
 
-When you connect a raw LLM to your app, it feels dumb. It can't run code. It can't search the web. It can't edit files. It forgets the conversation. It doesn't plan, doesn't retry, doesn't orchestrate.
+You've seen what Claude Code and OpenAI Codex can do: they plan, execute code, search the web, edit files, orchestrate sub-tasks, and stream results in real time. They don't just generate text — they **act**.
 
-That's because **ChatGPT, Claude, and Gemini aren't just models — they're entire agent systems.** The model is just one piece. Behind it there's tool orchestration, multi-turn planning, session memory, execution sandboxing, cost tracking, and streaming infrastructure. That's what makes them feel intelligent.
+But you can't embed Claude Code into your product. You can't give Codex to your users. These are closed products, not APIs you can build on.
 
-**LLMPowerUp gives you that entire system.** Plug in any model, and it instantly gets the same capabilities: 42 tools, agent loop, streaming, sessions, sandboxing — everything. Your Gemma, your Llama, your Mistral suddenly feels as capable as the best closed-source agents.
+**LLMPowerUp is that API.** The same agent architecture — 42 tools, multi-turn planning, session memory, execution sandboxing, real-time streaming — packaged as an open-source backend you own. Plug in any model (Gemini, Llama, GPT, Mistral, or 300+ others), and it gets the full agent stack. Your users get the Claude Code / Codex experience. You keep the control.
 
 ```bash
 # This isn't a chat completion. This is a full agent run.
 # The model will plan, use tools, search the web, execute code,
-# and stream results back — automatically.
+# and stream results back — just like Claude Code or Codex.
 
 curl -N https://api.llmpowerup.com/v1/agent/run \
   -H "Authorization: Bearer YOUR_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "google/gemini-3-flash-preview",
-    "content": "Find all TODO comments in this repo and create a summary",
+    "content": "Find all security vulnerabilities in this repo and fix them",
     "stream_format": "native"
   }'
 ```
 
-## What Makes Models Feel "Smart"
+## Claude Code / Codex power — as your API
 
-It's not the model. It's the infrastructure around it.
+| What Claude Code & Codex do | What LLMPowerUp gives you |
+|------------------------------|--------------------------|
+| Execute code to solve problems | Bash, Python REPL, PowerShell — sandboxed per tenant |
+| Search the web for real-time info | Brave Search, WebFetch |
+| Read, write, and edit codebases | FileRead, FileWrite, FileEdit, Glob, Grep, BatchEdit |
+| Plan and execute multi-step tasks | Automatic agent loop with tool orchestration |
+| Spawn sub-agents for parallel work | Sub-agents, skills, task management |
+| Remember context across turns | Session persistence (PostgreSQL) |
+| Stream results in real time | SSE in 3 formats (Native, Vercel AI SDK, OpenAI-compat) |
+| **Locked to one model** | **300+ models — swap with one parameter** |
+| **Closed source, can't self-host** | **Open source, self-host, embed in your product** |
+| **Can't white-label for your users** | **Multi-tenant: each customer gets their own sandbox** |
 
-| What you see in ChatGPT/Claude | What LLMPowerUp gives you |
-|-------------------------------|--------------------------|
-| Runs code to answer questions | Bash, Python REPL, PowerShell |
-| Searches the web in real time | Brave Search, WebFetch |
-| Reads and edits your files | FileRead, FileWrite, FileEdit, Glob, Grep |
-| Plans multi-step tasks | Agent loop with automatic tool orchestration |
-| Spawns sub-tasks | Sub-agents, skills, task management |
-| Remembers your conversation | Session persistence (PostgreSQL) |
-| Streams responses in real time | SSE (Native, Vercel AI SDK, OpenAI-compat) |
-| Works with any model | 300+ models via OpenRouter / BYOK |
+## Why businesses choose LLMPowerUp
 
-**Without this infrastructure**, even GPT-4o feels like a fancy autocomplete.
-**With it**, even a 7B open model can plan, execute, and deliver.
-
-## Why LLMPowerUp?
-
-| | LLMPowerUp | Building from scratch | Raw LLM API |
-|-|-----------|----------------------|-------------|
-| **Time to agent** | 1 API call | Weeks/months | You get text back |
-| **Tools** | 42 built-in | You build each one | None |
-| **Agent loop** | Automatic multi-turn | You implement it | None |
-| **Model support** | 300+ models, swap anytime | Locked to one | One provider |
-| **Streaming** | 3 formats (SSE, Vercel, OpenAI) | You build it | Varies |
-| **Sessions** | Built-in (PostgreSQL) | You build it | None |
-| **Sandboxing** | Per-tenant isolation | You build it | None |
-| **Cost tracking** | Automatic | You build it | None |
+| | LLMPowerUp | Building it yourself | Using Claude/Codex directly |
+|-|-----------|---------------------|---------------------------|
+| **Embed in your product** | Yes — it's your API | Yes, after months of work | No — they're end-user products |
+| **Model freedom** | 300+ models, swap anytime | You pick one | Locked to their model |
+| **Time to ship** | 1 API call | Weeks/months | N/A |
+| **Tools** | 42 built-in | You build each one | Can't customize |
+| **Multi-tenant** | Built-in isolation | You build it | Not designed for this |
+| **Cost** | Your model costs only | Your model + your infra | Their pricing |
+| **Self-host** | Yes | Yes | No |
 
 ## Key Numbers
 

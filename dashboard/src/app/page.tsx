@@ -29,15 +29,15 @@ export default function Home() {
 
         {/* Hero */}
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight max-w-4xl leading-[1.1]">
-          Make any LLM feel like{" "}
+          Claude Code & Codex power{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-violet-400">
-            ChatGPT or Claude
+            as your API
           </span>
         </h1>
 
         <p className="mt-6 text-base sm:text-lg text-white/60 max-w-2xl px-4">
-          Raw models feel dumb. ChatGPT and Claude feel smart because of the infrastructure around them.
-          LLMPowerUp gives any model that same infrastructure: 42 tools, agent orchestration, streaming, and sessions. One API call.
+          You can&apos;t embed Claude Code or Codex into your product. LLMPowerUp gives you the same
+          agent system — 42 tools, multi-turn planning, code execution, web search — as an API you own. Any model. Your users.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 mt-10 w-full sm:w-auto px-4 sm:px-0">
@@ -58,9 +58,9 @@ export default function Home() {
         {/* Features */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mt-16 sm:mt-24 max-w-5xl w-full px-4 sm:px-0">
           {[
-            { title: "Instant Agent Intelligence", desc: "Any model gets code execution, web search, file editing, sub-agents, and planning. No building from scratch." },
-            { title: "300+ Models, Same Power", desc: "Swap between Gemini, Llama, Mistral, GPT, or any OpenRouter model. They all get the full 42-tool agent system." },
-            { title: "Ship in Minutes", desc: "One API call. SSE streaming in 3 formats (Native, Vercel AI SDK, OpenAI-compat). Drop into any stack." },
+            { title: "Claude Code / Codex for your product", desc: "Same capabilities: code execution, web search, file editing, sub-agents, planning. But it's your API, not theirs." },
+            { title: "Any model, same power", desc: "Gemini, Llama, GPT, Mistral, or 300+ others via OpenRouter. They all get the full 42-tool agent system." },
+            { title: "Built for businesses", desc: "Multi-tenant, per-user sandboxing, session persistence, usage tracking, SSE streaming. Ship to your users today." },
           ].map((f) => (
             <div key={f.title} className="p-5 sm:p-6 border border-white/10 rounded-xl text-left hover:border-white/20 transition-colors">
               <h3 className="text-base sm:text-lg font-semibold mb-2">{f.title}</h3>
