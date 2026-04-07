@@ -1,0 +1,29 @@
+# Environment secrets
+.env
+.env.local
+*.env
+src-rust/crates/server/.env
+dashboard/.env.local
+services/api-proxy/.env
+
+# Build artifacts
+src-rust/target/
+dashboard/.next/
+dashboard/node_modules/
+services/api-proxy/node_modules/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Claude Code
+.claude/
+
+# Internal launch docs (not public)
+LAUNCH.md

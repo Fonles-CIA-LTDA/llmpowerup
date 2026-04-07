@@ -1,0 +1,27 @@
+<html><body><h3>SSE Test from localhost:3000</h3><pre id="out" style="font-size:11px;max-height:80vh;overflow:auto"></pre><script>
+async function test() {
+  const out = document.getElementById("out");
+  out.textContent = "Fetching...\n";
+  const res = await fetch("http://localhost:3001/v1/agent/run", {
+    method: "POST",
+    headers: {"Authorization":"Bearer clst_test_abc123xyz789def456ghi","Content-Type":"application/json"},
+    body: JSON.stringify({model:"google/gemma-4-31b-it",content:"Say hi",max_tokens:20})
+  });
+  out.textContent += "status: " + res.status + " body: " + !!res.body + "\n";
+  const reader = res.body.getReader();
+  const dec = new TextDecoder();
+  let n = 0;
+  while(true) {
+    const {done, value} = await reader.read();
+    if(done) { out.textContent += "=== DONE after " + n + " reads ===\n"; break; }
+    n++;
+    const txt = dec.decode(value, {stream:true});
+    if(!txt.includes("heartbeat") || n <= 3) {
+      out.textContent += "chunk " + n + ": " + txt.replace(/\n/g,"\\n").slice(0,120) + "\n";
+    }
+    if(n % 20 === 0) out.textContent += "... " + n + " chunks so far ...\n";
+    out.scrollTop = out.scrollHeight;
+  }
+}
+test().catch(e => document.getElementById("out").textContent += "ERROR: " + e.message);
+</script></body></html>

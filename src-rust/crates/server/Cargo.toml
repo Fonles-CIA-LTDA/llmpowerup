@@ -1,0 +1,67 @@
+[package]
+name = "claurst-server"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "claurst-server"
+path = "src/main.rs"
+
+[dependencies]
+# Workspace crates (reuse existing)
+claurst-core = { workspace = true }
+claurst-api = { workspace = true }
+claurst-query = { workspace = true }
+claurst-tools = { workspace = true }
+claurst-mcp = { workspace = true }
+
+# Async runtime
+tokio = { workspace = true }
+tokio-stream = { workspace = true }
+tokio-util = { workspace = true }
+futures = { workspace = true }
+async-trait = { workspace = true }
+async-stream = { workspace = true }
+
+# Web framework
+axum = { version = "0.8", features = ["macros"] }
+axum-extra = { version = "0.10", features = ["typed-header"] }
+tower = { version = "0.5", features = ["full"] }
+tower-http = { version = "0.6", features = ["cors", "trace", "compression-gzip", "request-id", "timeout"] }
+
+# Database
+sqlx = { version = "0.8", features = ["runtime-tokio-native-tls", "postgres", "uuid", "chrono", "json"] }
+
+# Serialization
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+# Auth / Crypto
+jsonwebtoken = "9"
+aes-gcm = "0.10"
+rand = "0.8"
+
+# Error handling
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+
+# Logging
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+
+# Utilities
+uuid = { version = "1", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+sha2 = { workspace = true }
+hex = { workspace = true }
+base64 = { workspace = true }
+dashmap = { workspace = true }
+parking_lot = { workspace = true }
+
+# Env
+dotenvy = "0.15"
+
+# Rate limiting
+governor = "0.8"
